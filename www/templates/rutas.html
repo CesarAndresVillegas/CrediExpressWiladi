@@ -1,0 +1,22 @@
+<ion-header-bar class="bar-stable bar-balanced">
+<button class="button button-icon icon ion-chevron-left" ng-click="irAtras()"></button>
+<h1 class="title">Clientes</h1>
+</ion-header-bar>
+<ion-view view-title="Clientes" name="Clientes-view">
+<ion-content class="padding">
+<div class="list">
+	<div class="card" ng-repeat="ruta in misRutas track by $index" ng-click="cargarPagosDe(ruta.id)" style="cursor: pointer">
+		<div class="{{ruta.cerrada  | filterRutaCerrada }}">
+			{{ruta.nombre | uppercase}}
+		</div>
+		<div class="item item-text-wrap">
+			<p><b>Dirección:</b> {{ruta.direccion}}.</p>
+			<p><b>Teléfono:</b> {{ruta.telefono}}.</p>
+		</div>
+		<div class="{{ruta.cerrada  | filterRutaCerrada }}">
+			<b>Valor prestamo:</b> {{ruta.t_prestamo | currency:undefined:0}}.
+		</div>
+	</div>
+</div>
+</ion-content>
+</ion-view>

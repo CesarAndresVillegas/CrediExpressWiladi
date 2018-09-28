@@ -1,0 +1,30 @@
+<ion-header-bar class="bar-stable bar-balanced">
+	<button class="button button-icon icon ion-chevron-left" ng-click="irAtras()"></button>
+	<h1 class="title">Recaudos</h1>
+</ion-header-bar>
+<ion-view view-title="Menu" name="menu-view">
+	<ion-content class="padding">
+		<div class="list list-inset">
+			<label class="item item-input">
+				<input type="date" placeholder="Fecha..." ng-model="screenRecaudo.fecha">
+			</label>
+			<button class="button button-block button-positive ion-map icon-right" ng-click="consultar()">
+				Consultar
+			</button>
+
+			<div class="card" ng-repeat="r in listRecaudos">
+				<div class="item item-text-wrap">
+					<p>Fecha: <b>{{r.fecha}}</b></p>
+					<p>Documento cliente: <b>{{r.clientes_documento}}</b></p>
+					<p>Nombre: <b>{{r.nombre}}</b></p>
+					<p>Valor: <b>{{r.valor | currency:undefined:0}}</b></p>
+				</div>
+			</div>
+		</div>
+	</ion-content>
+	<ion-footer-bar align-title="left" class="bar-balanced">
+		<div class="buttons">
+		</div>
+		<h2 class="title" style="color: black">Total:<b>{{ getTotal() | currency:undefined:0}}</b></h2>
+	</ion-footer-bar>
+</ion-view>

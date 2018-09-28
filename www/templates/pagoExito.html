@@ -1,0 +1,25 @@
+<ion-header-bar class="bar-stable bar-positive">
+<h1 class="title">Pago exitoso !!</h1>
+</ion-header-bar>
+<ion-view view-title="PagoExito" name="pagoExitoview">
+<ion-content class="padding">
+<div class="list list-inset">
+	<div class="card">
+		<div class="item item-divider">
+			<h2>Id pago: <b>{{screenResult.numero_registro}}</b></h2>
+			</div>
+			<div class="item item-text-wrap">
+				<p><b>Fecha:</b>{{screenResult.fecha | date:'dd/MM/yyyy'}}</p>
+				<p><b>Nombre del cliente:</b> {{screenResult.nombre_cliente}}</p>
+				<p><b>Documento del cliente:</b> {{screenResult.documento_cliente}}</p>
+				<p><b>Nombre del cobrador:</b>{{screenResult.nombre_cobrador}}</p>
+				<p><b>Cantidad de cuotas:</b> {{screenResult.cantidad_cuotas}}</p>
+			</div>
+			<div class="item item-divider">
+				<h2><b>Valor: {{screenResult.valor | currency:undefined:0}}</b> </h2>
+			</div>
+		</div>
+		<br>
+		<button class="button button-positive" ng-click="irAtras()">Volver</button>
+	</ion-content>
+</ion-view>

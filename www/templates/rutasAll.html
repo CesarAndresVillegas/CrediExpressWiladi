@@ -1,0 +1,26 @@
+<ion-header-bar class="bar-stable bar-positive item item-input-inset">
+<button class="button button-icon icon ion-chevron-left" ng-click="irAtras()"></button>
+
+<label class="item-input-wrapper">
+<input type="text" placeholder="Buscar cliente" ng-model="searchText">
+</label>
+
+</ion-header-bar>
+<ion-view view-title="ClientesRuta" name="ClientesRuta-view">
+<ion-content class="padding">
+<div class="list">
+	<div class="card" ng-repeat="ruta in misRutas | filter:searchText track by $index" ng-click="cargarPagosDe(ruta.id)" style="cursor: pointer">
+		<div class="item item-balanced item-divider">
+			{{ruta.nombre | uppercase}} - Doc:{{ruta.documento}}
+		</div>
+		<div class="item item-text-wrap">
+			<p><b>Dirección:</b> {{ruta.direccion}}.</p>
+			<p><b>Teléfono:</b> {{ruta.telefono}}.</p>
+		</div>
+		<div class="item item-balanced item-divider">
+			<b>Valor prestamo:</b> {{ruta.t_prestamo | currency:undefined:0}}.
+		</div>
+	</div>
+</div>
+</ion-content>
+</ion-view>
